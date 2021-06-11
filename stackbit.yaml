@@ -1,0 +1,11 @@
+stackbitVersion: ~0.3.0
+ssgName: gatsby
+nodeVersion: '12'
+publishDir: public
+pagesDir: src/@lekoarts/gatsby-theme-cara/sections
+models:
+  section:
+    type: page
+    label: Section
+    match: '*'
+    fields: []
