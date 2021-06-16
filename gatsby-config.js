@@ -1,15 +1,17 @@
-require(`dotenv`).config({
-  path: `.env`,
-});
+require(`dotenv`).config()
 
-const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
+const googleAnalyticsTrackingId = process.env.GOOGLE_ANALYTICS_ID
 
 module.exports = {
   siteMetadata: {
     // You can overwrite values here that are used for the SEO component
-    // Of course you can also add new values here to query them like usual
+    // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-cara/gatsby-config.js
-    siteTitleAlt: `Bryan Guner Portfolio`,
+    siteTitleAlt: `Cara - Gatsby Starter Portfolio`,
+  },
+  flags: {
+    FAST_DEV: true,
   },
   plugins: [
     {
@@ -17,7 +19,7 @@ module.exports = {
       // See the theme's README for all available options
       options: {},
     },
-    {
+    googleAnalyticsTrackingId && {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,
@@ -28,19 +30,19 @@ module.exports = {
       options: {
         name: `Cara - @lekoarts/gatsby-theme-cara`,
         short_name: `Cara`,
-        description: `My web development portfolio created with gatsby and react.`,
+        description: `Playful and Colorful One-Page portfolio featuring Parallax effects and animations`,
         start_url: `/`,
         background_color: `#141821`,
         theme_color: `#f6ad55`,
         display: `standalone`,
         icons: [
           {
-            src: `/apple-touch-icon-180x180.png`,
+            src: `/android-chrome-192x192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `/apple-touch-icon-152x152.png`,
+            src: `/android-chrome-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
@@ -59,4 +61,4 @@ module.exports = {
       },
     },
   ].filter(Boolean),
-};
+}
