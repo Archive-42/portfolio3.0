@@ -60,9 +60,9 @@ typings/
 .env.*
 !.env.example
 
-.cache
-**/.cache
-public
+# .cache
+# **/.cache
+# public
 
 .idea
 .vscode
